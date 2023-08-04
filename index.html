@@ -1,3 +1,22 @@
+<?php
+/* date in mm/dd/yyyy format */
+   $birthDate = '6/17/1993';
+
+/* explode the date to get month, day and year */
+   $birthDate = explode( '/', $birthDate );
+
+/* get age from date or birthdate */
+    $age = ( 
+            date('md', date('U', 
+            mktime( 0, 0, 0, 
+            $birthDate[0], 
+            $birthDate[1], 
+            $birthDate[2]))) > date('md') ? 
+            ((date('Y') - $birthDate[2]) - 1) : 
+            (date('Y') - $birthDate[2])
+            );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,16 +103,16 @@
             <div class="col-lg-6">
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>29 December 2001</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://my-website-cvz.pages.dev/</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>0721383087</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Nairobi, Kenya</span></li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>20</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span><?php echo ' ' . $age; ?></span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Currently undertaking a Degree</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>emmanuelkigen133@gmail.com</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>emmanuelkigen029@gmail.com</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
               </ul>
             </div>
